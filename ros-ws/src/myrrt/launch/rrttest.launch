@@ -1,0 +1,20 @@
+<launch>
+
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>
+  <!-- Map server -->
+  <arg name="map_file" default="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
+
+  <node name="myrrtwrapper" pkg="myrrt" type="myrrtwrapper" output="screen">
+    <param name="testing" value="true" />
+    <param name="use_initial" value="true" />
+    <param name="initialx" value="0" />
+    <param name="initialy" value="0" />
+    <param name="targetx" value="-2.5" />
+    <param name="targety" value="5.0" />
+  </node>
+
+  <node name="map_transformation" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map odom 10" output="screen"/>
+
+</launch>
