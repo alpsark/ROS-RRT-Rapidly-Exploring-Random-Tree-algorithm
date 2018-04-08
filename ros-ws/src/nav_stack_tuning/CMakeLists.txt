@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   move_base
   roscpp
   tf
+  std_msgs 
+	tf_conversions 
+	visualization_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -120,6 +123,8 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+add_library(global_planner_lib src/global_planner.cpp src/graph/MyVertex.cpp src/graph/MyEdge.cpp src/graph/MyGraph.cpp src/MyRRTSolver.cpp src/MapHelper.cpp)
+# target_link_libraries(global_planner ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

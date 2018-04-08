@@ -12,10 +12,9 @@
     <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/local_costmap_params.yaml" command="load" />
-    <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/global_costmap_params.yaml" command="load" />
     <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/move_base_params.yaml" command="load" />  
-    <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/global_planner_params.yaml" command="load" />   
     <rosparam file="/home/alpsark/ros-ws/src/nav_stack_tuning/launch/base_local_planner_params.yaml" command="load" /> 
+
     <remap from="odom" to="odom"/>
     <remap from="scan" to="/scan"/>
     <remap from="cmd_vel" to="/cmd_vel"/>  
@@ -25,8 +24,8 @@
     <param name="local_costmap/global_frame" value="odom"/>
     <param name="local_costmap/robot_base_frame" value="base_link"/>
     <param name="TrajectoryPlannerROS/global_frame_id" value="odom"/>
-    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
   </node>
 </launch>
 
